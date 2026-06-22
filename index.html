@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nosso Romance ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#ff4d6d,#ff8fab);
+color:white;
+overflow-x:hidden;
+}
+
+.hidden{
+display:none;
+}
+
+#login{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+padding:20px;
+position:relative;
+overflow:hidden;
+}
+
+#login h1{
+font-family:'Dancing Script',cursive;
+font-size:4rem;
+margin-bottom:20px;
+}
+
+#senha{
+padding:15px;
+border:none;
+border-radius:30px;
+font-size:1.1rem;
+text-align:center;
+width:250px;
+}
+
+.btn{
+margin-top:20px;
+padding:15px 30px;
+border:none;
+border-radius:30px;
+background:white;
+color:#ff4d6d;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
+.btn:hover{
+transform:scale(1.08);
+}
+
+.hero{
+height:100vh;
+background:
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+url('foto1.jpg');
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero-content{
+animation:fadeIn 3s;
+}
+
+.hero h1{
+font-family:'Dancing Script',cursive;
+font-size:5rem;
+}
+
+.hero p{
+font-size:1.4rem;
+margin-top:10px;
+}
+
+.section{
+max-width:1200px;
+margin:auto;
+padding:80px 20px;
+}
+
+.section h2{
+font-family:'Dancing Script',cursive;
+font-size:3.5rem;
+text-align:center;
+margin-bottom:30px;
+}
+
+.contador{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:20px;
+}
+
+.box{
+background:rgba(255,255,255,.15);
+backdrop-filter:blur(8px);
+padding:20px;
+border-radius:20px;
+min-width:120px;
+text-align:center;
+}
+
+.box span{
+display:block;
+font-size:2rem;
+font-weight:bold;
+}
+
+.carta{
+background:rgba(255,255,255,.12);
+padding:30px;
+border-radius:20px;
+line-height:2;
+font-size:1.1rem;
+backdrop-filter:blur(8px);
+}
+
+.galeria{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.galeria img{
+width:100%;
+height:350px;
+object-fit:cover;
+border-radius:20px;
+cursor:pointer;
+transition:.4s;
+box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+
+.galeria img:hover{
+transform:scale(1.05);
+}
+
+.timeline{
+position:relative;
+max-width:900px;
+margin:auto;
+}
+
+.timeline::after{
+content:'';
+position:absolute;
+width:4px;
+background:white;
+top:0;
+bottom:0;
+left:50%;
+margin-left:-2px;
+}
+
+.evento{
+padding:20px 40px;
+position:relative;
+width:50%;
+}
+
+.evento.left{
+left:0;
+}
+
+.evento.right{
+left:50%;
+}
+
+.evento .content{
+background:rgba(255,255,255,.15);
+padding:20px;
+border-radius:20px;
+}
+
+.music-btn{
+display:block;
+width:max-content;
+margin:40px auto;
+background:white;
+color:#ff4d6d;
+padding:15px 30px;
+border-radius:50px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.frase{
+text-align:center;
+font-size:2.5rem;
+font-family:'Dancing Script',cursive;
+margin-top:30px;
+}
+
+.final{
+height:80vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.final h2{
+font-family:'Dancing Script',cursive;
+font-size:4rem;
+}
+
+.final p{
+font-size:1.3rem;
+max-width:800px;
+margin:auto;
+margin-top:20px;
+}
+
+.coracao{
+position:fixed;
+top:-10px;
+animation:cair linear infinite;
+pointer-events:none;
+z-index:999;
+}
+
+@keyframes cair{
+to{
+transform:translateY(110vh);
+}
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(50px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.lightbox{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.9);
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+.lightbox img{
+max-width:90%;
+max-height:90%;
+border-radius:20px;
+}
+
+footer{
+padding:40px;
+text-align:center;
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:3rem;
+}
+
+.timeline::after{
+left:20px;
+}
+
+.evento{
+width:100%;
+left:0 !important;
+padding-left:50px;
+padding-right:20px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<div id="login">
+
+<h1>❤️ Nosso Romance ❤️</h1>
+
+<p>Digite a senha para entrar no nosso universo</p>
+
+<input type="password" id="senha" placeholder="Senha">
+
+<button class="btn" onclick="entrar()">Entrar</button>
+
+</div>
+
+<div id="site" class="hidden">
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>Wilian ❤️ Maria Luiza</h1>
+
+<p>Bem-vinda ao nosso pequeno universo...</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>Nosso Tempo Juntos</h2>
+
+<div class="contador">
+
+<div class="box"><span id="dias">0</span>Dias</div>
+
+<div class="box"><span id="horas">0</span>Horas</div>
+
+<div class="box"><span id="minutos">0</span>Minutos</div>
+
+<div class="box"><span id="segundos">0</span>Segundos</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>Minha Carta Para Você</h2>
+
+<div class="carta" id="carta"></div>
+
+</section>
+
+<section class="section">
+
+<h2>Nossos Momentos</h2>
+
+<div class="galeria">
+
+<img src="foto1.jpg" onclick="abrir(this.src)">
+<img src="foto2.jpg" onclick="abrir(this.src)">
+<img src="foto3.jpg" onclick="abrir(this.src)">
+<img src="foto4.jpg" onclick="abrir(this.src)">
+<img src="foto5.jpg" onclick="abrir(this.src)">
+<img src="foto6.jpg" onclick="abrir(this.src)">
+<img src="foto7.jpg" onclick="abrir(this.src)">
+
+</div>
+
+<a class="music-btn"
+href="https://www.youtube.com/results?search_query=talking+to+the+moon+bruno+mars"
+target="_blank">
+🎵 Nossa Música
+</a>
+
+</section>
+
+<section class="section">
+
+<h2>Nossa História</h2>
+
+<div class="timeline">
+
+<div class="evento left">
+<div class="content">
+<h3>❤️ 12/06/2025</h3>
+<p>Nosso primeiro encontro. O dia em que tudo começou.</p>
+</div>
+</div>
+
+<div class="evento right">
+<div class="content">
+<h3>💍 19/06/2025</h3>
+<p>O pedido de namoro que mudou nossas vidas para sempre.</p>
+</div>
+</div>
+
+<div class="evento left">
+<div class="content">
+<h3>💋 23/06/2025</h3>
+<p>Nosso primeiro beijo, um momento inesquecível.</p>
+</div>
+</div>
+
+<div class="evento right">
+<div class="content">
+<h3>💃 12/06/2026</h3>
+<p>Quando dançamos Can't Help Falling in Love e criamos mais uma lembrança eterna.</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>Uma Frase Que Resume Tudo</h2>
+
+<div class="frase">
+"Você é minha direção." ❤️
+</div>
+
+</section>
+
+<section class="final">
+
+<div>
+
+<h2>Minha Eterna Dama de Vermelho ❤️</h2>
+
+<p>
+
+Você foi e é o capítulo mais lindo de toda minha vida.
+
+Com você aprendi a viver, a amar, a sentir e até mesmo a respirar de uma forma diferente.
+
+Tudo que sou hoje é graças a você.
+
+Você me ajudou a me tornar um homem melhor, meu mar calmo, minha brisa fresca, meu ponto de paz.
+
+Eu te amo de um jeito que ainda não é possível expressar apenas em palavras.
+
+Obrigado por abrir as portas do seu coração para que eu pudesse entrar.
+
+Se eu pudesse escolher mil vezes, em todas elas eu escolheria você.
+
+Você é meu amor, minha paz, meu lar e meu futuro.
+
+❤️ Eu te amo, Maria Luiza. ❤️
+
+</p>
+
+</div>
+
+</section>
+
+<footer>
+
+Feito com todo amor por Wilian Lucas ❤️
+
+</footer>
+
+</div>
+
+<div class="lightbox" id="lightbox" onclick="fechar()">
+
+<img id="lightbox-img">
+
+</div>
+
+<script>
+
+function entrar(){
+
+const senha = document.getElementById("senha").value;
+
+if(senha === "2206"){
+
+document.getElementById("login").style.display="none";
+
+document.getElementById("site").classList.remove("hidden");
+
+iniciarCarta();
+
+}else{
+
+alert("Senha incorreta ❤️");
+
+}
+
+}
+
+const inicio = new Date("2025-06-22T00:00:00");
+
+function atualizarContador(){
+
+const agora = new Date();
+
+const diff = agora - inicio;
+
+const dias = Math.floor(diff / (1000*60*60*24));
+
+const horas = Math.floor((diff/(1000*60*60))%24);
+
+const minutos = Math.floor((diff/(1000*60))%60);
+
+const segundos = Math.floor((diff/1000)%60);
+
+document.getElementById("dias").innerText=dias;
+document.getElementById("horas").innerText=horas;
+document.getElementById("minutos").innerText=minutos;
+document.getElementById("segundos").innerText=segundos;
+
+}
+
+setInterval(atualizarContador,1000);
+
+const textoCarta = `
+
+Você foi e é o capítulo mais lindo de toda minha vida.
+
+Com você aprendi a viver, a amar, a sentir e até mesmo a respirar.
+
+Tudo que sou hoje é graças a você.
+
+Você me ajudou a me tornar um homem melhor.
+
+Meu mar calmo.
+
+Minha brisa fresca.
+
+Meu ponto de paz.
+
+Eu te amo de um jeito que ainda não é possível expressar apenas em palavras.
+
+Obrigado por abrir as portas do seu coração para que eu pudesse entrar.
+
+Te amo meu eterno amor, minha eterna dama de vermelho.
+
+❤️
+
+`;
+
+function iniciarCarta(){
+
+let i = 0;
+
+const elemento = document.getElementById("carta");
+
+function escrever(){
+
+if(i < textoCarta.length){
+
+elemento.innerHTML += textoCarta.charAt(i);
+
+i++;
+
+setTimeout(escrever,35);
+
+}
+
+}
+
+escrever();
+
+}
+
+function criarCoracao(){
+
+const coracao=document.createElement("div");
+
+coracao.classList.add("coracao");
+
+coracao.innerHTML="❤️";
+
+coracao.style.left=Math.random()*100+"vw";
+
+coracao.style.fontSize=(Math.random()*25+15)+"px";
+
+coracao.style.animationDuration=(Math.random()*6+5)+"s";
+
+document.body.appendChild(coracao);
+
+setTimeout(()=>{
+
+coracao.remove();
+
+},10000);
+
+}
+
+setInterval(criarCoracao,300);
+
+function abrir(src){
+
+document.getElementById("lightbox").style.display="flex";
+
+document.getElementById("lightbox-img").src=src;
+
+}
+
+function fechar(){
+
+document.getElementById("lightbox").style.display="none";
+
+}
+
+window.addEventListener('scroll',()=>{
+
+const final=document.querySelector('.final');
+
+const pos=final.getBoundingClientRect().top;
+
+const tela=window.innerHeight;
+
+if(pos<tela-150){
+
+for(let i=0;i<20;i++){
+
+setTimeout(()=>{
+
+const c=document.createElement('div');
+
+c.innerHTML='✨';
+
+c.classList.add('coracao');
+
+c.style.left=Math.random()*100+'vw';
+
+c.style.fontSize=(Math.random()*30+20)+'px';
+
+c.style.animationDuration='4s';
+
+document.body.appendChild(c);
+
+setTimeout(()=>c.remove(),4000);
+
+},i*150);
+
+}
+
+}
+
+});
+
+</script>
+
+</body>
+</html>
